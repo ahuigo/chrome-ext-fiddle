@@ -9,7 +9,7 @@
    "default_title": "Have a good day"
  },
 "chrome_url_overrides" : {
-  "newtab": "newtab.html"
+  "newtab": "fiddle.html"
 },
  "permissions": ["activeTab"]
 }

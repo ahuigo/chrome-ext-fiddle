@@ -1,26 +1,3 @@
-<body oninput="autorun.checked && run()">
-    <style>
-        textarea,iframe{width:49%;height:47%}
-        body{margin:0}
-        textarea{width:49%;font-size:18}
-    </style>
-    <textarea placeholder=HTML id=h></textarea>
-    <textarea placeholder=CSS id=c></textarea>
-    <div>
-        <select id="cdnjsId"> </select>
-        <select id="cdncssId"> </select>
-        <input type="checkbox" id="autorun" checked> AutoRun
-        <button onclick="run()">Run(F5)</button>
-        <button onclick="open_page('page')">Open Page</button>
-        <button onclick="copy_html('page')">Copy Page</button>
-        <button onclick="copy_html('editor')">Copy Editor</button>
-        <span style="color:red" id=msg></span>
-        F5: Run, Ctrl+U: Delete Head; Ctrl+W: Delete Word; Shift+Tab: Switch Textarea
-        MacOSX Tips: Ctrl+A:Head, Ctrl+E:End, Ctrl+F:Right, Ctrl+B:Left, Ctrl+N:Next Line, Ctrl+P: Previous Line
-    </div>
-    <textarea placeholder=JS id=j></textarea>
-<iframe id=i></iframe>
-<script>
 log = console.log;
 var cdncss = {
     'bulma':"https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css",
@@ -102,7 +79,13 @@ document.addEventListener('keydown', e=>{
         }
     }
 });
-function run(){ i.srcdoc=h.value+'<style>'+c.value+'</style><script>'+j.value+'<\/script>';
+function srcdoc(html){
+    var html_src = 'data:text/html;charset=utf-8,' + encodeURI(html);
+    i.src = html_src;
+}
+function run(){ 
+    var html=h.value+'<style>'+c.value+'</style><script nonce=EDNnf03nceIOfn39fn3e9h3sdfa>'+j.value+'<\/script>';
+    srcdoc(html)
 }
 function open_page(type){
     let h = `${i.srcdoc}`;
@@ -137,4 +120,7 @@ function copy(text) {
     return result;
 }
 run();
-</script>
+
+document.body.oninput = ()=>{
+    autorun.checked && run()
+}

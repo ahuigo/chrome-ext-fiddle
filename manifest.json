@@ -8,6 +8,8 @@
    "default_icon": "tab-icon.png",
    "default_title": "Have a good day"
  },
+ "all_frames": true,
+
 "chrome_url_overrides" : {
   "newtab": "fiddle.html"
 },

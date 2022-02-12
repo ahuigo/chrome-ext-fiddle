@@ -1,4 +1,4 @@
-# Chrome debug extension
+# Chrome fiddle extension for new tab
 >Refer to: 
 https://medium.freecodecamp.org/how-to-create-and-publish-a-chrome-extension-in-20-minutes-6dc8395d7153
 
